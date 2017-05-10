@@ -1,0 +1,25 @@
+{
+    "suggestionsApp": {
+        "suggestion" : {
+            "home": {
+                "title": "Suggestions",
+                "createLabel": "Create a new Suggestion",
+                "createOrEditLabel": "Create or edit a Suggestion"
+            },
+            "created": "A new Suggestion is created with identifier {{ param }}",
+            "updated": "A Suggestion is updated with identifier {{ param }}",
+            "deleted": "A Suggestion is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Suggestion {{ id }}?"
+            },
+            "detail": {
+                "title": "Suggestion"
+            },
+            "title": "Title",
+            "message": "Message",
+            "create": "Create",
+            "Addressee": "Addressee",
+            "author": "Author"
+        }
+    }
+}

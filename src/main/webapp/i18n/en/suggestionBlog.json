@@ -1,0 +1,25 @@
+{
+    "suggestionsApp": {
+        "suggestionBlog" : {
+            "home": {
+                "title": "Suggestion Blogs",
+                "createLabel": "Create a new Suggestion Blog",
+                "createOrEditLabel": "Create or edit a Suggestion Blog"
+            },
+            "created": "A new Suggestion Blog is created with identifier {{ param }}",
+            "updated": "A Suggestion Blog is updated with identifier {{ param }}",
+            "deleted": "A Suggestion Blog is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Suggestion Blog {{ id }}?"
+            },
+            "detail": {
+                "title": "Suggestion Blog"
+            },
+            "title": "Title",
+            "content": "Content",
+            "create": "Create",
+            "author": "Author",
+            "Category": "Category"
+        }
+    }
+}

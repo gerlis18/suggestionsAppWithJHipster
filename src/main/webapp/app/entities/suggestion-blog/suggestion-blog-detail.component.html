@@ -1,0 +1,43 @@
+
+<div *ngIf="suggestionBlog">
+    <h2><span jhiTranslate="suggestionsApp.suggestionBlog.detail.title">Suggestion Blog</span> {{suggestionBlog.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="suggestionsApp.suggestionBlog.title">Title</span></dt>
+        <dd>
+            <span>{{suggestionBlog.title}}</span>
+        </dd>
+        <dt><span jhiTranslate="suggestionsApp.suggestionBlog.content">Content</span></dt>
+        <dd>
+            <span>{{suggestionBlog.content}}</span>
+        </dd>
+        <dt><span jhiTranslate="suggestionsApp.suggestionBlog.create">Create</span></dt>
+        <dd>
+            <span>{{suggestionBlog.create | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="suggestionsApp.suggestionBlog.author">Author</span></dt>
+        <dd>
+            {{suggestionBlog.author?.login}}
+        </dd>
+        <dt><span jhiTranslate="suggestionsApp.suggestionBlog.Category">Category</span></dt>
+        <dd>
+            <div *ngIf="suggestionBlog.category">
+                <a [routerLink]="['/category', suggestionBlog.category?.id]">{{suggestionBlog.category?.name}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'suggestion-blog/'+ suggestionBlog.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,80 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="mySuggestionBlogLabel" jhiTranslate="suggestionsApp.suggestionBlog.home.createOrEditLabel">Create or edit a Suggestion Blog</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!suggestionBlog.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="suggestionBlog.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="suggestionsApp.suggestionBlog.title" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                [(ngModel)]="suggestionBlog.title"
+            required />
+            <div [hidden]="!(editForm.controls.title?.dirty && editForm.controls.title?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.title?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="suggestionsApp.suggestionBlog.content" for="field_content">Content</label>
+            <input type="text" class="form-control" name="content" id="field_content"
+                [(ngModel)]="suggestionBlog.content"
+            required />
+            <div [hidden]="!(editForm.controls.content?.dirty && editForm.controls.content?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.content?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="suggestionsApp.suggestionBlog.create" for="field_create">Create</label>
+            <div class="d-flex">
+                <input id="field_create" type="datetime-local" class="form-control" name="create" [(ngModel)]="suggestionBlog.create"
+                  />
+            </div>
+        </div>
+
+        <!--<div class="form-group">
+            <label jhiTranslate="suggestionsApp.suggestionBlog.author" for="field_author">Author</label>
+            <select class="form-control" id="field_author" name="author" [(ngModel)]="suggestionBlog.author"  required>
+                <option [ngValue]="userOption.id === suggestionBlog.author?.id ? suggestionBlog.author : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.author?.dirty && editForm.controls.author?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.author?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>-->
+        <div class="form-group">
+            <label jhiTranslate="suggestionsApp.suggestionBlog.Category" for="field_Category">Category</label>
+            <select class="form-control" id="field_Category" name="Category" [(ngModel)]="suggestionBlog.category"  required>
+                <option [ngValue]="categoryOption.id === suggestionBlog.category?.id ? suggestionBlog.category : categoryOption" *ngFor="let categoryOption of categories; trackBy: trackCategoryById">{{categoryOption.name}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.Category?.dirty && editForm.controls.Category?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.Category?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
