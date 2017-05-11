@@ -85,7 +85,7 @@ public class SuggestionResource {
     @Timed
     public List<Suggestion> getAllSuggestions() {
         log.debug("REST request to get all Suggestions");
-        List<Suggestion> suggestions = suggestionRepository.findByAddresseeIsCurrentUser();
+        List<Suggestion> suggestions = suggestionRepository.findAll();
         return suggestions;
     }
 

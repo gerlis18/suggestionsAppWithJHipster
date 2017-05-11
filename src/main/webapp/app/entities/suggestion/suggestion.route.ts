@@ -16,16 +16,17 @@ export const suggestionRoute: Routes = [
     path: 'suggestion',
     component: SuggestionComponent,
     data: {
-        authorities: ['ROLE_USER'],
-        pageTitle: 'suggestionsApp.suggestion.home.title'
+      authorities: ['ROLE_USER'],
+      pageTitle: 'suggestionsApp.suggestion.home.title'
     },
     canActivate: [UserRouteAccessService]
-  }, {
+  },
+  {
     path: 'suggestion/:id',
     component: SuggestionDetailComponent,
     data: {
-        authorities: ['ROLE_USER'],
-        pageTitle: 'suggestionsApp.suggestion.home.title'
+      authorities: ['ROLE_USER'],
+      pageTitle: 'suggestionsApp.suggestion.home.title'
     },
     canActivate: [UserRouteAccessService]
   }
@@ -36,8 +37,8 @@ export const suggestionPopupRoute: Routes = [
     path: 'suggestion-new',
     component: SuggestionPopupComponent,
     data: {
-        authorities: ['ROLE_USER'],
-        pageTitle: 'suggestionsApp.suggestion.home.title'
+      authorities: ['ROLE_USER'],
+      pageTitle: 'suggestionsApp.suggestion.home.title'
     },
     canActivate: [UserRouteAccessService],
     outlet: 'popup'
@@ -46,8 +47,8 @@ export const suggestionPopupRoute: Routes = [
     path: 'suggestion/:id/edit',
     component: SuggestionPopupComponent,
     data: {
-        authorities: ['ROLE_USER'],
-        pageTitle: 'suggestionsApp.suggestion.home.title'
+      authorities: ['ROLE_USER'],
+      pageTitle: 'suggestionsApp.suggestion.home.title'
     },
     canActivate: [UserRouteAccessService],
     outlet: 'popup'
@@ -56,8 +57,8 @@ export const suggestionPopupRoute: Routes = [
     path: 'suggestion/:id/delete',
     component: SuggestionDeletePopupComponent,
     data: {
-        authorities: ['ROLE_USER'],
-        pageTitle: 'suggestionsApp.suggestion.home.title'
+      authorities: ['ROLE_USER'],
+      pageTitle: 'suggestionsApp.suggestion.home.title'
     },
     canActivate: [UserRouteAccessService],
     outlet: 'popup'

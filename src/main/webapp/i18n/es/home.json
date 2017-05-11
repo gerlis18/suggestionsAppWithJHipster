@@ -1,9 +1,14 @@
 {
     "home": {
-        "title": "¡Bienvenido, Java Hipster!",
+        "title": "¡Bienvenido a SugerenciasApp!",
         "subtitle": "Esta es su página de inicio",
         "logged": {
-            "message": "Está conectado como \"{{username}}\"."
+            "message": "Está conectado como \"{{username}}\".",
+            "info": "SuggestionsApp te permite generar comentarios y/o sugerencias ya sean dirigidas a personas en caso que sepas el nombre de la persona o si por el contrario no sabes exactamente el referente puedes hacerla libremente por medio del blog",
+            "personLink": "Personas",
+            "personInfo": "si deseas hacer un comentario y/o sugerencia a una persona",
+            "blogLink": "Blog",
+            "blogInfo": "En caso de no conocer al referente"
         },
         "question": "Si tiene preguntas sobre JHipster:",
         "link": {

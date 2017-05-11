@@ -12,7 +12,8 @@
     <div class="row">
     </div>
     <br/>
-    <div class="table-responsive" *ngIf="suggestionBlogs">
+
+    <!--<div class="table-responsive" *ngIf="suggestionBlogs">
         <table class="table table-striped">
             <thead>
             <tr>
@@ -47,14 +48,14 @@
                             <span class="fa fa-eye"></span>
                             <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
                         </button>
-                        <button type="submit"
+                        <button *ngIf="suggestionBlog.author.id === currentAccount.id" type="submit"
                                 [routerLink]="['/', { outlets: { popup: 'suggestion-blog/'+ suggestionBlog.id + '/edit'} }]"
                                 replaceUrl="true"
                                 class="btn btn-primary btn-sm">
                             <span class="fa fa-pencil"></span>
                             <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
                         </button>
-                        <button type="submit"
+                        <button *ngIf="suggestionBlog.author.id === currentAccount.id" type="submit"
                                 [routerLink]="['/', { outlets: { popup: 'suggestion-blog/'+ suggestionBlog.id + '/delete'} }]"
                                 replaceUrl="true"
                                 class="btn btn-danger btn-sm">
@@ -66,5 +67,53 @@
             </tr>
             </tbody>
         </table>
-    </div>
+    </div>-->
+
+    <ul class="list-unstyled" *ngFor="let suggestionBlog of suggestionBlogs ;trackBy: trackId">
+        <div class="card my-3">
+            <div class="card-block">
+                <li class="media my-2">
+                    <a href="" data-toggle="tooltip" data-placement="top" title="{{suggestionBlog.author.login}}">
+                        <img class="d-flex align-self-start mr-3" src="../../../content/images/logo-jhipster.png" alt="Generic placeholder image"
+                            style="width: 3rem;">
+                    </a>
+                    <div class="media-body">
+                        <a href="" [routerLink]="['../suggestion-blog', suggestionBlog.id ]">
+                            <h4 class="mt-0"> {{ suggestionBlog.title }} </h4>
+                        </a>
+                        <div class="jumbotron">
+                                <p class="lead">{{ suggestionBlog.content }}</p>
+                            
+                        </div>
+                        
+                        <p class="pull-right">
+                            {{suggestionBlog.create | date:'medium'}}
+                        </p>
+                    </div>
+                </li>
+            </div>
+            <div class="card-footer text-muted">
+                <div class="pull-left">
+                    <p><span jhiTranslate="suggestionsApp.suggestionBlog.Category">Category</span> <span class="badge badge-warning">{{ suggestionBlog.category?.name }}</span></p>
+                </div>
+                <div class="pull-right">
+                    <button *ngIf="suggestionBlog.author.id === currentAccount.id" type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'suggestion-blog/'+ suggestionBlog.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button *ngIf="suggestionBlog.author.id === currentAccount.id" type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'suggestion-blog/'+ suggestionBlog.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </ul>
 </div>

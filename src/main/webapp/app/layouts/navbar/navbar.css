@@ -6,10 +6,10 @@ Navbar
     color: #ccc
 }
 
-.jh-navbar {
+/*.jh-navbar {
     background-color: #353d47;
     padding: .2em 1em;
-}
+}*/
 
 .jh-navbar .profile-image {
     margin: -10px 0px;
@@ -38,15 +38,15 @@ Navbar
     font-weight: 400;
 }
 
-.jh-navbar .jh-navbar-toggler {
-    color: #ccc;
+/*.jh-navbar .jh-navbar-toggler {
+    color: white;
     font-size: 1.5em;
     padding: 10px;
-}
+}*/
 
-.jh-navbar .jh-navbar-toggler:hover {
+/*.jh-navbar .jh-navbar-toggler:hover {
     color: #fff;
-}
+}*/
 
 
 

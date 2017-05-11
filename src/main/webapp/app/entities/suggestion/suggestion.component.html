@@ -12,6 +12,83 @@
     <div class="row">
     </div>
     <br/>
+
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" href="#sends" data-toggle="tab" aria-expanded="true">Enviadas</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"  href="#toReceive" data-toggle="tab" aria-expanded="false">Recibidas</a>
+        </li>
+    </ul>
+
+    <div id="myTabContent" class="tab-content">
+        <div id="sends" class="tab-pane active" role="tabpanel">
+            <ul class="list-unstyled" *ngFor="let suggestion of suggestions ;trackBy: trackId">
+                <div *ngIf="suggestion.author.id === currentAccount.id"  class="card my-3">
+                    <div class="card-block">
+                        <li class="media my-2">
+                            <a href="" data-toggle="tooltip" data-placement="top" title="{{suggestion.addressee.login}}">
+                                <img class="d-flex align-self-start mr-3" src="../../../content/images/logo-jhipster.png" alt="Generic placeholder image"
+                                    style="width: 3rem;">
+                            </a>
+                            <div class="media-body">
+                                <a href="" [routerLink]="['../suggestion', suggestion.id ]">
+                                    <h4 class="mt-0"> {{ suggestion.title }} </h4>
+                                </a>
+                                <p>{{ suggestion.message }}</p>
+                                <p class="pull-right">
+                                    {{suggestion.create | date:'medium'}}
+                                </p>
+                            </div>
+                        </li>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <div class="pull-right">
+                            <button type="submit" [routerLink]="['/', { outlets: { popup: 'suggestion/'+ suggestion.id + '/edit'} }]" replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                            <button type="submit" [routerLink]="['/', { outlets: { popup: 'suggestion/'+ suggestion.id + '/delete'} }]" replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                        </div>
+                    </div>
+                </div>
+            </ul>
+        </div>
+
+        <div id="toReceive" class="tab-pane fade">
+            <ul class="list-unstyled" *ngFor="let suggestionR of suggestions ;trackBy: trackId">
+                <div *ngIf="suggestionR.addressee.id === currentAccount.id"  class="card my-3">
+                    <div class="card-block">
+                        <li class="media my-2">
+                            <a href="" data-toggle="tooltip" data-placement="top" title="{{suggestionR.author.login}}">
+                                <img class="d-flex align-self-start mr-3" src="../../../content/images/logo-jhipster.png" alt="Generic placeholder image"
+                                    style="width: 3rem;">
+                            </a>
+                            <div class="media-body">
+                                <a href="" [routerLink]="['../suggestion', suggestionR.id ]">
+                                    <h4 class="mt-0"> {{ suggestionR.title }} </h4>
+                                </a>
+                                <p>{{ suggestionR.message }}</p>
+                                <p class="pull-right">
+                                    {{suggestionR.create | date:'medium'}}
+                                </p>
+                            </div>
+                        </li>
+                    </div>
+                    <div class="card-footer text-muted">
+                       
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+
     <!--<div class="table-responsive" *ngIf="suggestions">
         <table class="table table-striped">
             <thead>
@@ -60,26 +137,7 @@
         </table>
     </div>-->
 
-    <ul class="list-unstyled">
-        <div *ngFor="let suggestion of suggestions ;trackBy: trackId" class="card my-3">
-            <div class="card-block">
-                <li class="media my-2">
-                    <a href="" data-toggle="tooltip" data-placement="top" title="">
-                        <!--<img class="d-flex align-self-start mr-3" src="../../../assets/images/avatar-default.png" alt="Generic placeholder image"
-                            style="width: 3rem;">-->
-                    </a>
-                    <div class="media-body">
-                        <a href="" [routerLink]="['../suggestion', suggestion.id ]">
-                            <h4 class="mt-0"> {{ suggestion.title }} </h4>
-                        </a>
-                        <p>{{ suggestion.message }}</p>
-                        <p class="pull-right">
-                            {{suggestion.create | date:'medium'}}
-                        </p>
-                    </div>
-                </li>
-            </div>
-        </div>
-    </ul>
+
 
 </div>
+

@@ -48,6 +48,8 @@ export class SuggestionBlogDialogComponent implements OnInit {
                 this.suggestionBlog.author = user
             }
         );
+
+        this.suggestionBlog.create = this.getLocalDate();
     }
     clear() {
         this.activeModal.dismiss('cancel');
@@ -67,7 +69,7 @@ export class SuggestionBlogDialogComponent implements OnInit {
     }
 
     private onSaveSuccess(result: SuggestionBlog) {
-        this.eventManager.broadcast({ name: 'suggestionBlogListModification', content: 'OK'});
+        this.eventManager.broadcast({ name: 'suggestionBlogListModification', content: 'OK' });
         this.isSaving = false;
         this.activeModal.dismiss(result);
     }
@@ -93,6 +95,12 @@ export class SuggestionBlogDialogComponent implements OnInit {
     trackCategoryById(index: number, item: Category) {
         return item.id;
     }
+
+    getLocalDate() {
+        let time = new Date().toLocaleTimeString();
+        let fecha = new Date().toLocaleDateString();
+        return fecha + ' ' + time;
+    }
 }
 
 @Component({
@@ -107,11 +115,11 @@ export class SuggestionBlogPopupComponent implements OnInit, OnDestroy {
     constructor(
         private route: ActivatedRoute,
         private suggestionBlogPopupService: SuggestionBlogPopupService
-    ) {}
+    ) { }
 
     ngOnInit() {
         this.routeSub = this.route.params.subscribe((params) => {
-            if ( params['id'] ) {
+            if (params['id']) {
                 this.modalRef = this.suggestionBlogPopupService
                     .open(SuggestionBlogDialogComponent, params['id']);
             } else {

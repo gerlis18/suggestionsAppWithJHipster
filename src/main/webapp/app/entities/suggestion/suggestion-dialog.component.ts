@@ -9,6 +9,7 @@ import { Suggestion } from './suggestion.model';
 import { SuggestionPopupService } from './suggestion-popup.service';
 import { SuggestionService } from './suggestion.service';
 import { User, UserService } from '../../shared';
+import { AccountService } from '../../shared/auth/account.service';
 
 @Component({
     selector: 'jhi-suggestion-dialog',
@@ -27,7 +28,8 @@ export class SuggestionDialogComponent implements OnInit {
         private alertService: AlertService,
         private suggestionService: SuggestionService,
         private userService: UserService,
-        private eventManager: EventManager
+        private eventManager: EventManager,
+        private accountService: AccountService
     ) {
         this.jhiLanguageService.setLocations(['suggestion']);
     }
@@ -37,6 +39,14 @@ export class SuggestionDialogComponent implements OnInit {
         this.authorities = ['ROLE_USER', 'ROLE_ADMIN'];
         this.userService.query().subscribe(
             (res: Response) => { this.users = res.json(); }, (res: Response) => this.onError(res.json()));
+
+        this.suggestion.create = this.getLocalDate();
+        this.accountService.get().subscribe(
+            author => {
+                this.suggestion.author = author
+            }
+        );
+        
     }
     clear() {
         this.activeModal.dismiss('cancel');
@@ -78,6 +88,13 @@ export class SuggestionDialogComponent implements OnInit {
     trackUserById(index: number, item: User) {
         return item.id;
     }
+
+    getLocalDate() {
+    let time = new Date().toLocaleTimeString();
+    let fecha = new Date().toLocaleDateString();
+    return fecha + ' ' + time;
+  }
+
 }
 
 @Component({

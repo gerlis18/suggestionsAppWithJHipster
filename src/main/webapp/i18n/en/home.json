@@ -1,9 +1,14 @@
 {
     "home": {
-        "title": "Welcome, Java Hipster!",
+        "title": "Welcome to SuggestionsApp",
         "subtitle": "This is your homepage",
         "logged": {
-            "message": "You are logged in as user \"{{username}}\"."
+            "message": "You are logged in as user \"{{username}}\".",
+            "info": "SuggestionsApp allows you to generate comments and / or suggestions whether they are addressed to people in case you know the name of the person or on the contrary you do not know exactly the referent can do through the medium of the blog",
+            "personLink": "Persons",
+            "personInfo": "If you want to make a comment and/or suggestion to a person",
+            "blogLink": "Blog",
+            "blogInfo": "In case of not knowing the referent"
         },
         "question": "If you have any question on JHipster:",
         "link": {

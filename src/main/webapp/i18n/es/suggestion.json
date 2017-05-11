@@ -4,22 +4,22 @@
             "home": {
                 "title": "Mis Sugerencias",
                 "createLabel": "Crear nueva Sugerencia",
-                "createOrEditLabel": "Crear o editar Suggestion"
+                "createOrEditLabel": "Crear o editar Sugerencia"
             },
             "created": "Un nuevo Suggestion ha sido creado con el identificador {{ param }}",
             "updated": "Un Suggestion ha sido actualizado con el identificador {{ param }}",
             "deleted": "Un Suggestion ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Suggestion {{ id }}?"
+                "question": "¿Seguro que quieres eliminar ésta sugerencia?"
             },
             "detail": {
                 "title": "Mis Sugerencias"
             },
-            "title": "Title",
-            "message": "Message",
-            "create": "Create",
-            "Addressee": "Addressee",
-            "author": "Author"
+            "title": "titulo",
+            "message": "Mensaje",
+            "create": "Creado",
+            "Addressee": "Destinatario",
+            "author": "Autor"
         }
     }
 }

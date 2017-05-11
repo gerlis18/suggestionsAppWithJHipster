@@ -32,7 +32,7 @@
         <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
     </button>
 
-    <button type="button"
+    <button *ngIf="suggestion.author.id === currentAccount.id" type="button"
             [routerLink]="['/', { outlets: { popup: 'suggestion/'+ suggestion.id + '/edit'} }]"
             replaceUrl="true"
             class="btn btn-primary">

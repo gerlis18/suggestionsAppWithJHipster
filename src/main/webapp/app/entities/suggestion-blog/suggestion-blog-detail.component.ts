@@ -5,6 +5,7 @@ import { EventManager , JhiLanguageService  } from 'ng-jhipster';
 
 import { SuggestionBlog } from './suggestion-blog.model';
 import { SuggestionBlogService } from './suggestion-blog.service';
+import { Principal } from '../../shared/auth/principal.service';
 
 @Component({
     selector: 'jhi-suggestion-blog-detail',
@@ -16,11 +17,13 @@ export class SuggestionBlogDetailComponent implements OnInit, OnDestroy {
     private subscription: any;
     private eventSubscriber: Subscription;
 
+    private currentAccount: any;
     constructor(
         private eventManager: EventManager,
         private jhiLanguageService: JhiLanguageService,
         private suggestionBlogService: SuggestionBlogService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private principal: Principal
     ) {
         this.jhiLanguageService.setLocations(['suggestionBlog']);
     }
@@ -28,6 +31,9 @@ export class SuggestionBlogDetailComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.subscription = this.route.params.subscribe((params) => {
             this.load(params['id']);
+        });
+        this.principal.identity().then((account) => {
+            this.currentAccount = account;
         });
         this.registerChangeInSuggestionBlogs();
     }
