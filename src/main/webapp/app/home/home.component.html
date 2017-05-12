@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-3">
-        <span class="hipster img-fluid img-rounded"></span>
+        <!--<span class="hipster img-fluid img-rounded"></span>-->
     </div>
     <div class="col-md-9">
         <h1 class="display-4" jhiTranslate="home.title">Welcome to SuggestionsApp</h1>
@@ -12,7 +12,7 @@
             </div>
 
              <div  *ngSwitchCase="true" class="jumbotron">
-                        <p *ngIf="account">
+                        <p class="lead" *ngIf="account">
                             <span jhiTranslate="home.logged.info">
                             SuggestionsApp te permite generar comentarios y/o sugerencias ya sean dirigidas a personas en caso que sepas el nombre de la persona o si por el contrario no sabes exactamente el referente puedes hacerla libremente por medio del blog</span>
                         </p>

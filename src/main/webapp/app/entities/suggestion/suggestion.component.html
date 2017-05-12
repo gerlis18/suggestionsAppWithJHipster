@@ -1,4 +1,4 @@
-<div>
+<div class="container">
     <h2>
         <span jhiTranslate="suggestionsApp.suggestion.home.title">Suggestions</span>
         <button class="btn btn-primary float-right create-suggestion" [routerLink]="['/', { outlets: { popup: ['suggestion-new'] } }]">
@@ -18,17 +18,20 @@
             <a class="nav-link active" href="#sends" data-toggle="tab" aria-expanded="true">Enviadas</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link"  href="#toReceive" data-toggle="tab" aria-expanded="false">Recibidas</a>
+            <a class="nav-link" href="#toReceive" data-toggle="tab" aria-expanded="false">Recibidas</a>
         </li>
     </ul>
 
     <div id="myTabContent" class="tab-content">
         <div id="sends" class="tab-pane active" role="tabpanel">
             <ul class="list-unstyled" *ngFor="let suggestion of suggestions ;trackBy: trackId">
-                <div *ngIf="suggestion.author.id === currentAccount.id"  class="card my-3">
+                <div *ngIf="suggestion.author.id === currentAccount.id" class="card my-3">
                     <div class="card-block">
                         <li class="media my-2">
-                            <a href="" data-toggle="tooltip" data-placement="top" title="{{suggestion.addressee.login}}">
+                            <span *ngIf="suggestion.author.imageUrl">
+                      <img [src]="suggestion.author.imageUrl" class=" d-flex align-self-start mr-3 blog-image rounded-circle" alt="Avatar">
+                  </span>
+                            <a *ngIf="!suggestion.author.imageUrl" href="" data-toggle="tooltip" data-placement="top" title="{{suggestion.addressee.login}}">
                                 <img class="d-flex align-self-start mr-3" src="../../../content/images/logo-jhipster.png" alt="Generic placeholder image"
                                     style="width: 3rem;">
                             </a>
@@ -63,10 +66,13 @@
 
         <div id="toReceive" class="tab-pane fade">
             <ul class="list-unstyled" *ngFor="let suggestionR of suggestions ;trackBy: trackId">
-                <div *ngIf="suggestionR.addressee.id === currentAccount.id"  class="card my-3">
+                <div *ngIf="suggestionR.addressee.id === currentAccount.id" class="card my-3">
                     <div class="card-block">
                         <li class="media my-2">
-                            <a href="" data-toggle="tooltip" data-placement="top" title="{{suggestionR.author.login}}">
+                            <span *ngIf="suggestionR.author.imageUrl">
+                      <img [src]="suggestionR.author.imageUrl" class=" d-flex align-self-start mr-3 blog-image rounded-circle" alt="Avatar">
+                  </span>
+                            <a *ngIf="!suggestionR.author.imageUrl" href="" data-toggle="tooltip" data-placement="top" title="{{suggestionR.author.login}}">
                                 <img class="d-flex align-self-start mr-3" src="../../../content/images/logo-jhipster.png" alt="Generic placeholder image"
                                     style="width: 3rem;">
                             </a>
@@ -82,7 +88,7 @@
                         </li>
                     </div>
                     <div class="card-footer text-muted">
-                       
+
                     </div>
                 </div>
             </ul>
@@ -140,4 +146,3 @@
 
 
 </div>
-

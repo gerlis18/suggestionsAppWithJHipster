@@ -44,8 +44,8 @@ export class SuggestionBlogDialogComponent implements OnInit {
         this.categoryService.query().subscribe(
             (res: Response) => { this.categories = res.json(); }, (res: Response) => this.onError(res.json()));
         this.accountService.get().subscribe(
-            user => {
-                this.suggestionBlog.author = user
+            (user) => {
+                this.suggestionBlog.author = user;
             }
         );
 
@@ -97,8 +97,8 @@ export class SuggestionBlogDialogComponent implements OnInit {
     }
 
     getLocalDate() {
-        let time = new Date().toLocaleTimeString();
-        let fecha = new Date().toLocaleDateString();
+        const time = new Date().toLocaleTimeString();
+        const fecha = new Date().toLocaleDateString();
         return fecha + ' ' + time;
     }
 }

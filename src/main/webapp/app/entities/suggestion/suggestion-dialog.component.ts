@@ -42,11 +42,10 @@ export class SuggestionDialogComponent implements OnInit {
 
         this.suggestion.create = this.getLocalDate();
         this.accountService.get().subscribe(
-            author => {
-                this.suggestion.author = author
+            (author) => {
+                this.suggestion.author = author;
             }
         );
-        
     }
     clear() {
         this.activeModal.dismiss('cancel');
@@ -90,8 +89,8 @@ export class SuggestionDialogComponent implements OnInit {
     }
 
     getLocalDate() {
-    let time = new Date().toLocaleTimeString();
-    let fecha = new Date().toLocaleDateString();
+    const time = new Date().toLocaleTimeString();
+    const fecha = new Date().toLocaleDateString();
     return fecha + ' ' + time;
   }
 

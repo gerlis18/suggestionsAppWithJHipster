@@ -17,7 +17,7 @@ export class SuggestionBlogDetailComponent implements OnInit, OnDestroy {
     private subscription: any;
     private eventSubscriber: Subscription;
 
-    private currentAccount: any;
+    currentAccount: any;
     constructor(
         private eventManager: EventManager,
         private jhiLanguageService: JhiLanguageService,

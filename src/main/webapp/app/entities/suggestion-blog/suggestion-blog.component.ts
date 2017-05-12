@@ -32,6 +32,7 @@ suggestionBlogs: SuggestionBlog[];
         this.suggestionBlogService.query().subscribe(
             (res: Response) => {
                 this.suggestionBlogs = res.json();
+                console.log(this.suggestionBlogs)
             },
             (res: Response) => this.onError(res.json())
         );
@@ -42,6 +43,7 @@ suggestionBlogs: SuggestionBlog[];
             this.currentAccount = account;
         });
         this.registerChangeInSuggestionBlogs();
+        
     }
 
     ngOnDestroy() {
@@ -57,5 +59,13 @@ suggestionBlogs: SuggestionBlog[];
 
     private onError(error) {
         this.alertService.error(error.message, null, null);
+    }
+
+    isAuthenticated() {
+        return this.principal.isAuthenticated();
+    }
+
+    getImageUrl(imageUrl) {
+        return this.isAuthenticated() ? imageUrl : null;
     }
 }
