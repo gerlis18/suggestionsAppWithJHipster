@@ -32,7 +32,6 @@ suggestionBlogs: SuggestionBlog[];
         this.suggestionBlogService.query().subscribe(
             (res: Response) => {
                 this.suggestionBlogs = res.json();
-                console.log(this.suggestionBlogs)
             },
             (res: Response) => this.onError(res.json())
         );
@@ -43,7 +42,6 @@ suggestionBlogs: SuggestionBlog[];
             this.currentAccount = account;
         });
         this.registerChangeInSuggestionBlogs();
-        
     }
 
     ngOnDestroy() {
