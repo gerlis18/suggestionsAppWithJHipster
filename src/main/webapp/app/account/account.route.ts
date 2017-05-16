@@ -8,7 +8,8 @@ import {
     registerRoute,
     sessionsRoute,
     settingsRoute,
-    profileRoute
+    profileRoute,
+    userRoute
 } from './';
 
 const ACCOUNT_ROUTES = [
@@ -19,7 +20,8 @@ const ACCOUNT_ROUTES = [
    registerRoute,
    sessionsRoute,
    settingsRoute,
-   profileRoute
+   profileRoute,
+   userRoute
 ];
 
 export const accountState: Routes = [{

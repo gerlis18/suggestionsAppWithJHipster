@@ -22,4 +22,7 @@ export * from './settings/settings.component';
 export * from './settings/settings.route';
 export * from './profile/profile.component';
 export * from './profile/profile.route';
+export * from './user-profile/user-profile.component';
+export * from './user-profile/user-profile.route';
 export * from './account.route';
+

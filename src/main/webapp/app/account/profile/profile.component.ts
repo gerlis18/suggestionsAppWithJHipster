@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AccountService } from '../../shared/auth/account.service';
 import { User } from '../../shared/user/user.model';
+import { Principal } from '../../shared/auth/principal.service';
 
 @Component({
   selector: 'jhi-profile',
@@ -10,16 +10,14 @@ export class ProfileComponent implements OnInit {
 
   currentAccount: User;
   constructor(
-    private accountService: AccountService
+    private principal: Principal
   ) { }
 
   ngOnInit() {
-    this.accountService.get().subscribe(
-      (user) => {
-        this.currentAccount = user;
-        console.log(this.currentAccount);
-      }
-    );
+    this.principal.identity().then((account) => {
+            this.currentAccount = account;
+            console.log(this.currentAccount);
+        });
   }
 
 }

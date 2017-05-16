@@ -6,6 +6,10 @@
                 "createLabel": "Crear nueva Sugerencia",
                 "createOrEditLabel": "Crear o editar Sugerencia"
             },
+            "nav": {
+                "sends": "Enviadas",
+                "received": "Recibidas"
+            },
             "created": "Un nuevo Suggestion ha sido creado con el identificador {{ param }}",
             "updated": "Un Suggestion ha sido actualizado con el identificador {{ param }}",
             "deleted": "Un Suggestion ha sido eliminado con el identificador {{ param }}",

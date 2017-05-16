@@ -8,7 +8,7 @@
     "baseName": "suggestionsApp",
     "packageName": "com.intergrupo.appsuggestions",
     "packageFolder": "com/intergrupo/appsuggestions",
-    "serverPort": "8181",
+    "serverPort": "8080",
     "authenticationType": "session",
     "hibernateCache": "ehcache",
     "clusteredHttpSession": false,

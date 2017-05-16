@@ -14,13 +14,14 @@
             },
             "account": {
                 "main": "Account",
-                "profile": "Perfil",
+                "profile": "Profile",
                 "settings": "Settings",
                 "password": "Password",
                 "sessions": "Sessions",
                 "login": "Sign in",
                 "logout": "Sign out",
-                "register": "Register"
+                "register": "Register",
+                "userProfile": "User"
             },
             "admin": {
                 "main": "Administration",

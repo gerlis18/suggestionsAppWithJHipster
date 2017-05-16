@@ -19,7 +19,8 @@ import {
     PasswordResetFinishComponent,
     SettingsComponent,
     accountState,
-    ProfileComponent
+    ProfileComponent,
+    UserProfileComponent
 } from './';
 
 @NgModule({
@@ -36,7 +37,8 @@ import {
         PasswordResetFinishComponent,
         SessionsComponent,
         SettingsComponent,
-        ProfileComponent
+        ProfileComponent,
+        UserProfileComponent
     ],
     providers: [
         SessionsService,
